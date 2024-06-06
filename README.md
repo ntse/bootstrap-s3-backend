@@ -2,6 +2,8 @@
 
 This Terraform module bootstraps an AWS account by creating an S3 bucket and a DynamoDB table, which are essential components for storing remote Terraform state files. Access to the S3 bucket is restricted to IAM users and roles passed in as `iam_principals` input variable list.
 
+🐔🥚
+
 ## Usage
 
 ```hcl
@@ -15,8 +17,9 @@ module "bootstrap" {
 
 ## Assumptions and notes
 
-- `<account id>-<region name>-state` - This bucket is to hold the state files at `s3://11111111111111111-eu-west-1-state/<environment name>/<module name>/tfstate.tf`
-- `<account id>-<region name>-state-logs` - This bucket holds the access logs of the first bucket
+- `<account id>-<region name>-state` - This bucket is to store the state files.
+- `<account id>-<region name>-state-logs` - This bucket stores the access logs of the first bucket
+- The state file for the S3 backend resources (S3 bucket, DynamoDB table and other ancillaries) is stored in `s3://11111111111111111-eu-west-1-state/s3-backend-state/terraform.tfstate`
 - When running `terraform init` in the Terraform code base that will have its state stored in these buckets, `backend-config` flags will need adding. E.g.
 ```bash
 terraform init \  
