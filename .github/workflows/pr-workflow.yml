@@ -38,8 +38,8 @@ jobs:
       run: |
         terraform_fmt_status="❌"
         terraform_lint_status="❌"
-        [ ${{ steps.terraform_fmt.result }} == 'success' ] && terraform_fmt_status="✅"
-        [ ${{ steps.terraform_lint.result }} == 'success' ] && terraform_lint_status="✅"
+        [ ${{ steps.terraform_fmt.outcome }} == 'success' ] && terraform_fmt_status="✅"
+        [ ${{ steps.terraform_lint.outcome }} == 'success' ] && terraform_lint_status="✅"
         echo "Terraform Linting" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "- Terraform Formating ${terraform_fmt_status}" >> $GITHUB_STEP_SUMMARY
