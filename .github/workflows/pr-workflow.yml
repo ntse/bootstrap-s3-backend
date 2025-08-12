@@ -27,7 +27,7 @@ jobs:
       continue-on-error: true
       
     - name: Setup TFLint
-      uses: terraform-linters/setup-tflint@v4
+      uses: terraform-linters/setup-tflint@v5
 
     - name: Run TFLint
       run: tflint --recursive
