@@ -34,7 +34,7 @@ jobs:
 
     - name: Setup Terraform
       if: steps.check_state_bucket.outputs.s3_bucket_exists == 'false'
-      uses: hashicorp/setup-terraform@v3
+      uses: hashicorp/setup-terraform@v4
 
     - name: Disable S3 Backend
       working-directory: ./examples/full
